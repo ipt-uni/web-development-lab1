@@ -9,6 +9,10 @@ public class Category
 {
     [Key]
     public int Id { get; set; }
-    public string category { get; set; }
+
+    [StringLength(50)]
+    [Required(ErrorMessage = "Name can't be empty")]
+    [Display(Name = "Name of the Category")]
+    public string Name { get; set; } = "";
     public ICollection<Photograph> ListOfPhotos { get; set; }
 }
