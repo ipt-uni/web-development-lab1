@@ -1,5 +1,8 @@
 namespace lab1.Models;
 
+/// <summary>
+/// Represents a photograph in the system.
+/// </summary>
 public class Photograph
 {
     public int Id { get; set; }

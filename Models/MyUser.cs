@@ -1,5 +1,8 @@
 ﻿namespace lab1.Models;
 
+/// <summary>
+/// Represents a user in the system.
+/// </summary>
 public class MyUser
 {
     public int Id { get; set; }
