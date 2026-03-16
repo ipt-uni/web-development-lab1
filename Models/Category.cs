@@ -14,5 +14,5 @@ public class Category
     [Required(ErrorMessage = "Name can't be empty")]
     [Display(Name = "Name of the Category")]
     public string Name { get; set; } = "";
-    public ICollection<Photograph> ListOfPhotos { get; set; }
+    public ICollection<Photograph>? ListOfPhotos { get; set; }
 }
