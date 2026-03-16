@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using lab1.Data;
 using lab1.Models;
+using lab1.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,9 +24,15 @@ namespace lab1.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<CategoryDTO>>> GetCategories()
         {
-            return await _context.Categories.ToListAsync();
+            /* _context.Categories.ToListAsync() its a LINQ command that means
+             * SELECT *
+             * FROM Categories
+             */
+            return await _context
+                .Categories.Select(c => new CategoryDTO(c.Id, c.Name))
+                .ToListAsync();
         }
 
         // GET: api/Categories/5
