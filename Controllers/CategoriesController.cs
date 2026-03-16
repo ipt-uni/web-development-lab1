@@ -37,11 +37,11 @@ namespace lab1.Controllers
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<CategoryDTO>> GetCategory(int id)
+        public async Task<ActionResult<CategorySimplerDTO>> GetCategory(int id)
         {
             var category = await _context
                 .Categories.Where(c => c.Id == id)
-                .Select(c => new CategoryDTO(c.Id, c.Name))
+                .Select(c => new CategorySimplerDTO(c.Name))
                 .FirstOrDefaultAsync();
 
             if (category == null)
